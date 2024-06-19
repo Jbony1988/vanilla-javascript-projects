@@ -43,7 +43,10 @@ form.addEventListener("submit", (e) => {
   });
 
   const allTrue = answersChecked.every((answer) => answer.value === "true");
-  if (allTrue) {
+
+  const allAnswered = answersChecked.length === questionItems.length;
+
+  if (allTrue && allAnswered) {
     alert.classList.add("active");
     setTimeout(() => {
       alert.classList.remove("active");
