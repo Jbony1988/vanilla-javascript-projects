@@ -23,31 +23,31 @@ form.addEventListener("submit", e => {
   //    2. Get all selected answers (use the `checked` property on the input to determine if it is selected or not)
   const checkedAnswers = answers.filter(answer => answer.checked)
   console.log(checkedAnswers)
-  // //    3. Loop through the selected answer to see if they are correct or not (Check the value of the answer to see if it is the string "true")
-  // checkedAnswers.forEach(answer => {
-  //   const isCorrect = answer.value === "true"
-  //   const questionItem = answer.closest(".question-item")
+  //    3. Loop through the selected answer to see if they are correct or not (Check the value of the answer to see if it is the string "true")
+  checkedAnswers.forEach(answer => {
+    const isCorrect = answer.value === "true"
+    const questionItem = answer.closest(".question-item")
 
-  //   //    4. For each correct answer add the class `correct` to the parent with the class `question-item` and remove the class `incorrect`.
-  //   if (isCorrect) {
-  //     questionItem.classList.add("correct")
-  //     questionItem.classList.remove("incorrect")
-  //   } else {
-  //     //    5. For each incorrect answer add the class `incorrect` to the parent with the class `question-item` and remove the class `correct`.
-  //     questionItem.classList.add("incorrect")
-  //     questionItem.classList.remove("correct")
-  //   }
-  //   //    7. BONUS: If all answers are correct show the element with the id `alert` and hide it after one second (look into setTimeout) (use the class active to show the alert and remove the class to hide it)
+    //    4. For each correct answer add the class `correct` to the parent with the class `question-item` and remove the class `incorrect`.
+    if (isCorrect) {
+      questionItem.classList.add("correct")
+      questionItem.classList.remove("incorrect")
+    } else {
+      //    5. For each incorrect answer add the class `incorrect` to the parent with the class `question-item` and remove the class `correct`.
+      questionItem.classList.add("incorrect")
+      questionItem.classList.remove("correct")
+    }
+    //    7. BONUS: If all answers are correct show the element with the id `alert` and hide it after one second (look into setTimeout) (use the class active to show the alert and remove the class to hide it)
 
-  //   const allTrue = checkedAnswers.every(answer => answer.value === "true")
-  //   const allAnswered = checkedAnswers.length === questionItems.length
+    const allTrue = checkedAnswers.every(answer => answer.value === "true")
+    const allAnswered = checkedAnswers.length === questionItems.length
 
-  //   if (allTrue && allAnswered) {
-  //     alert.classList.add("active")
-  //     setTimeout(() => {
-  //       alert.classList.remove("active")
-  //     }, 1000)
-  //   }
-  // })
+    if (allTrue && allAnswered) {
+      alert.classList.add("active")
+      setTimeout(() => {
+        alert.classList.remove("active")
+      }, 1000)
+    }
+  })
 })
 
